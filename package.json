@@ -1,0 +1,27 @@
+{
+  "name": "animated-portfolio-framermotion",
+  "version": "0.1.0",
+  "private": true,
+  "description": "This project is mainly focused on animation with framer motion",
+  "author": "Istiak Ahmed Saad",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "15.5.9",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.9",
+    "eslint-config-prettier": "^10.1.8",
+    "tailwindcss": "^4"
+  }
+}
