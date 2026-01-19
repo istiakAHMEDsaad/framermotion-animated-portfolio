@@ -25,8 +25,11 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className='h-screen w-screen bg-linear-to-b from-blue-100 to-red-100'>
-          <Navbar />
-          {children}
+          <div className='h-24'>
+            <Navbar />
+          </div>
+
+          <div className='has-[calc(100vh-6rem)]:'>{children}</div>
         </div>
       </body>
     </html>
