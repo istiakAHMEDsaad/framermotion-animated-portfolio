@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import IconImg from '@/app/icon.png';
+import NavLink from './NavLink';
+
 import { useState } from 'react';
 
 const NavLinks = [
@@ -28,32 +29,29 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className='h-full flex items-center justify-between px-4 ms:px-8 md:px-12 lg:px-20 xl:px-48'>
+    <div className='h-full flex items-center justify-between px-4 ms:px-8 md:px-12 lg:px-20 xl:px-48 text-xl'>
       {/* medium device navbar */}
-      <div className='hidden md:flex gap-4 w-1/3'>
+      <div className='hidden md:flex gap-3 w-1/3'>
         {NavLinks.map((item) => (
-          <Link key={item.title} href={item.url}>
-            {item.title}
-          </Link>
+          <NavLink key={item.title} item={item} />
         ))}
       </div>
 
-      {/* dev with favicon */}
-      <div className='md:hidden lg:flex w-1/3'>
+      {/* saad.dev navbar logo */}
+      <div className='md:hidden lg:flex xl:justify-center xl:w-1/3'>
         <Link
           href='/'
           className='text-sm bg-neutral-950 rounded-md p-1 font-semibold flex items-center justify-center'
         >
           <span className='text-white mr-1'>Saad</span>
-          <span className='w-12 h-8 rounded bg-white text-black flex items-center justify-center'>
-            
+          <span className='w-12 h-7 rounded bg-white text-black flex items-center justify-center'>
             .dev
           </span>
         </Link>
       </div>
 
       {/* social logo */}
-      <div className='hidden md:flex gap-3 w-1/3'>
+      <div className='hidden md:flex justify-end gap-3 w-1/3'>
         <Link href='https://github.com/istiakAHMEDsaad/' target='_blank'>
           <Image src='/github.png' alt='github' width={24} height={24} />
         </Link>
@@ -113,11 +111,15 @@ export default function Navbar() {
   );
 }
 
-{/* <div className='relative h-8 w-8'>
-              <Image
-                src={IconImg}
-                alt='icon'
-                fill
-                className='rounded-full object-cover'
-              />
-            </div> */}
+{
+  /* 
+  import IconImg from '@/app/icon.png';
+  <div className='relative h-8 w-8'>
+    <Image
+      src={IconImg}
+      alt='icon'
+      fill
+      className='rounded-full object-cover'
+    />
+  </div> */
+}

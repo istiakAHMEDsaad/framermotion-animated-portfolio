@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className='h-screen w-screen bg-linear-to-b from-orange-100 to-zinc-100'>
+        <div className='h-screen w-screen bg-linear-to-b from-zinc-100 to-orange-100'>
           <div className='h-24'>
             <Navbar />
           </div>
