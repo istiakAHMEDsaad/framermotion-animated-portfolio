@@ -1,10 +1,15 @@
 'use client';
 
+import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import NavLink from './NavLink';
-
 import { useState } from 'react';
+
+const PoppinsFont = Poppins({
+  subsets: ['latin'],
+  weight: '400',
+});
 
 const NavLinks = [
   {
@@ -31,7 +36,7 @@ export default function Navbar() {
   return (
     <div className='h-full flex items-center justify-between px-4 ms:px-8 md:px-12 lg:px-20 xl:px-48 text-xl'>
       {/* medium device navbar */}
-      <div className='hidden md:flex gap-3 w-1/3'>
+      <div className={`hidden md:flex gap-3 w-1/3 ${PoppinsFont.className}`}>
         {NavLinks.map((item) => (
           <NavLink key={item.title} item={item} />
         ))}
