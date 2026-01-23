@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import NavLink from './NavLink';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const PoppinsFont = Poppins({
   subsets: ['latin'],
@@ -29,6 +30,59 @@ const NavLinks = [
     title: 'Contact',
   },
 ];
+
+const topVariants = {
+  closed: {
+    rotate: 0,
+  },
+  opened: {
+    rotate: 40,
+    backgroundColor: 'rgb(255,255,255)',
+  },
+};
+
+const centerVariants = {
+  closed: {
+    opacity: 1,
+  },
+  opened: {
+    opacity: 0,
+  },
+};
+
+const bottomVariants = {
+  closed: {
+    rotate: 0,
+  },
+  opened: {
+    rotate: -40,
+    backgroundColor: 'rgb(255,255,255)',
+  },
+};
+
+const listVariants = {
+  closed: {
+    x: '100vw',
+  },
+  opened: {
+    x: 0,
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const listItemVariants = {
+  closed: {
+    x: -10,
+    opacity: 0,
+  },
+  opened: {
+    x: 0,
+    opacity: 1,
+  },
+};
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,48 +137,47 @@ export default function Navbar() {
       {/* menu for small devices */}
       <div className='md:hidden'>
         {/* mobile menu button */}
-        {isOpen ? (
-          <button
-            onClick={() => setIsOpen((prev) => !prev)}
-            className='w-8 h-6 flex flex-col justify-between relative z-50'
-          >
-            <div className='w-8 h-1 text-white rounded text-3xl'>X</div>
-          </button>
-        ) : (
-          <button
-            onClick={() => setIsOpen((prev) => !prev)}
-            className='w-8 h-6 flex flex-col justify-between relative z-50'
-          >
-            <div className='w-8 h-1 bg-neutral-950 rounded'></div>
-            <div className='w-8 h-1 bg-neutral-950 rounded'></div>
-            <div className='w-8 h-1 bg-neutral-950 rounded'></div>
-          </button>
-        )}
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className='w-8 h-6 flex flex-col justify-between relative z-50'
+        >
+          <motion.div
+            variants={topVariants}
+            animate={isOpen ? 'opened' : 'closed'}
+            className='w-8 h-1 bg-neutral-950 rounded origin-left'
+          ></motion.div>
+          <motion.div
+            variants={centerVariants}
+            animate={isOpen ? 'opened' : 'closed'}
+            className='w-8 h-1 bg-neutral-950 rounded'
+          ></motion.div>
+          <motion.div
+            variants={bottomVariants}
+            animate={isOpen ? 'opened' : 'closed'}
+            className='w-8 h-1 bg-neutral-950 rounded origin-left'
+          ></motion.div>
+        </button>
 
         {/* menu list */}
         {isOpen && (
-          <div className='absolute top-0 left-0 w-screen h-screen bg-neutral-950 text-white flex flex-col items-center justify-center gap-5 text-4xl'>
+          <motion.div
+            variants={listVariants}
+            initial='closed'
+            animate='opened'
+            className='absolute top-0 left-0 w-full h-full bg-neutral-950 text-white flex flex-col items-center justify-center gap-5 text-4xl z-40'
+          >
             {NavLinks.map((item) => (
-              <Link key={item.title} href={item.url}>
-                {item.title}
-              </Link>
+              <motion.div
+                key={item.title}
+                variants={listItemVariants}
+                transition={{ duration: 0.5 }}
+              >
+                <Link href={item.url}>{item.title}</Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
   );
-}
-
-{
-  /* 
-  import IconImg from '@/app/icon.png';
-  <div className='relative h-8 w-8'>
-    <Image
-      src={IconImg}
-      alt='icon'
-      fill
-      className='rounded-full object-cover'
-    />
-  </div> */
 }
