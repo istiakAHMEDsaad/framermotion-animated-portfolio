@@ -192,13 +192,13 @@ const AboutPage = () => {
                 <div className='w-1/3 '>
                   {/* JOB TITLE */}
                   <div
-                    className={`bg-white p-2 font-semibold rounded-b-lg rounded-s-lg ${InterFont.className}`}
+                    className={`bg-white p-2 font-semibold rounded-b-lg rounded-s-lg ${InterFont.className} text-center`}
                   >
                     Senior JavaScript Engineer
                   </div>
                   {/* JOB DESC */}
                   <div
-                    className={`p-3 text-sm italic ${PoppinsFont.className}`}
+                    className={`p-3 text-sm italic ${PoppinsFont.className} text-center`}
                   >
                     I led web development, offering expertise in JavaScript
                     frameworks.{' '}
@@ -246,20 +246,20 @@ const AboutPage = () => {
                 <div className='w-1/3 '>
                   {/* JOB TITLE */}
                   <div
-                    className={`bg-white p-2 font-semibold rounded-b-lg rounded-s-lg ${InterFont.className}`}
+                    className={`bg-white p-2 font-semibold rounded-b-lg rounded-s-lg ${InterFont.className} text-center`}
                   >
                     Senior React Developer
                   </div>
                   {/* JOB DESC */}
                   <div
-                    className={`p-3 text-sm italic ${PoppinsFont.className}`}
+                    className={`p-3 text-sm italic ${PoppinsFont.className} text-center`}
                   >
                     I spearheaded React-based application development,
                     leveraging advanced skills.{' '}
                   </div>
                   {/* JOB DATE */}
                   <div
-                    className={`p-3 text-red-400 text-sm font-semibold ${InterFont.className}`}
+                    className={`p-3 text-red-400 text-sm font-semibold ${InterFont.className} text-center`}
                   >
                     2019 - 2024{' '}
                   </div>
@@ -278,19 +278,21 @@ const AboutPage = () => {
                 <div className='w-1/3 '>
                   {/* JOB TITLE */}
                   <div
-                    className={`bg-white p-2 font-semibold rounded-b-lg rounded-s-lg ${InterFont.className}`}
+                    className={`bg-white p-2 font-semibold rounded-b-lg rounded-s-lg ${InterFont.className} text-center`}
                   >
                     Freelancer{' '}
                   </div>
                   {/* JOB DESC */}
                   <div
-                    className={`p-3 text-sm italic ${PoppinsFont.className}`}
+                    className={`p-3 text-sm italic ${PoppinsFont.className} text-center`}
                   >
                     I provided web solutions, applying a range of technologies
                     to address client requirements.{' '}
                   </div>
                   {/* JOB DATE */}
-                  <div className={`p-3 text-red-400 text-sm font-semibold ${InterFont.className}`}>
+                  <div
+                    className={`p-3 text-red-400 text-sm font-semibold ${InterFont.className} text-center`}
+                  >
                     2010 - 2019{' '}
                   </div>
                 </div>
